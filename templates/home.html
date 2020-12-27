@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Upload file</h1>
+
+        </div>
+        <form method="post" action="upload" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+              <label>Select a file</label>
+              <div class="input-group">
+                  <input class="form-control" type="file" name="file" class="form-control form-control-lg" id="formFileLg">
+              </div>
+            </div>
+
+        <div>
+          <button type="submit" class="btn btn-primary" >Upload</button>
+        </div>
+      </form>
+
+
+    </div>
+
+</body>
+</html>
