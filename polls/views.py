@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .forms import UploadFileForm
 # Create your views here.
@@ -20,4 +20,9 @@ def upload_file(request):
     #     file_df = pd.read_excel(request.FILES.get('file'),engine='openpyxl')
     #     print(file_df)
     df = az.main(request.FILES.get('file'))
-    return HttpResponse(df.to_html())
+    # return HttpResponse(df.to_html())
+    return redirect("/polls/dash")
+
+
+def dash(request):
+    return render(request, "dash.html")

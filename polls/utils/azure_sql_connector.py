@@ -45,15 +45,12 @@ def get_table_columns(conn,table_name):
 
 def insert_data(conn, tables_name, insert_columns, insert_values):
     sql = "insert into [{}]{} values {}".format(tables_name, insert_columns, insert_values)
-    print(sql)
     with conn.cursor() as cursor:
         cursor.execute(sql)
 
 
 def main(file):
-    print("#################################################")
     databases_names = get_databases(connection)
-    print(databases_names)
     tables_names = get_tables(connection)
     columns_names = get_table_columns(connection, tables_names[1][0])
     insert_columns = "( [" + "],[".join(columns_names[1:]) + " ])"
